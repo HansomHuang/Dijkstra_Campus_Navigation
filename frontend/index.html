@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMBU 校园导航系统</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 顶部 TabBar -->
+  <header class="tabbar">
+    <h1>SMBU 校园导航系统</h1>
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="navigation">导航</button>
+      <button class="tab-btn" data-tab="route-image">路径</button>
+      <button class="tab-btn" data-tab="guide">导览</button>
+    </nav>
+  </header>
+
+  <!-- 主内容区 -->
+  <main id="app">
+    <!-- 导航 Tab -->
+    <section id="navigation" class="tab-content active">
+      <div id="map-wrapper">
+        <img id="map-img" src="map.jpg" alt="Campus Map">
+        <div id="overlay"></div>
+        <canvas id="path-canvas"></canvas>
+      </div>
+
+      <div class="controls-section">
+        <div class="info-row">
+          <div class="info-item"><strong>起点:</strong> <span id="start-label">请选择</span></div>
+          <div class="info-item"><strong>终点:</strong> <span id="end-label">请选择</span></div>
+        </div>
+        <div class="button-row">
+          <button id="clear-btn" class="btn">清除</button>
+          <button id="route-btn" class="btn primary">计算路径</button>
+        </div>
+      </div>
+      <pre id="output" class="output-box"></pre>
+      <p class="hint-text">点击地图上的按钮以选择起点/终点。</p>
+      <p class="hint-text">2025/11/20</p>
+    </section>
+
+    <!-- 路径 Tab -->
+    <section id="route-image" class="tab-content">
+      <img src="route_overview.jpg" alt="校园路径总览图" class="full-image">
+      <p class="image-caption">校园主要路径示意图</p>
+    </section>
+
+    <!-- 导览 Tab -->
+    <section id="guide" class="tab-content">
+      <div class="guide-container">
+        <aside class="guide-sidebar">
+          <input type="text" id="search-input" placeholder="检索位置" class="search-box">
+          <ul id="landmark-list" class="landmark-list">
+            <li data-id="0">1-B栋</li>
+            <li data-id="1">1-A栋</li>
+            <li data-id="2">1-食堂</li>
+            <li data-id="3">体育馆</li>
+            <li data-id="4">学生活动中心</li>
+            <li data-id="5">体育场看台</li>
+            <li data-id="6">2-D栋</li>
+            <li data-id="7">2-C栋</li>
+            <li data-id="8">2-B栋</li>
+            <li data-id="9">2-A栋</li>
+            <li data-id="10">2-食堂</li>
+            <li data-id="11">3-B栋</li>
+            <li data-id="12">3-A栋</li>
+            <li data-id="13">3-食堂</li>
+            <li data-id="14">图书馆</li>
+            <li data-id="15">1-教学楼</li>
+            <li data-id="16">2-教学楼</li>
+            <li data-id="17">3-教学楼</li>
+            <li data-id="18">2-实验楼</li>
+            <li data-id="19">主楼</li>
+            <li data-id="20">1-实验楼</li>
+            <li data-id="21">会堂</li>
+          </ul>
+        </aside>
+        <article class="guide-detail" id="landmark-detail">
+          <h2>SMBU 导览</h2>
+          <p>选择地点以查看详细信息。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <template id="detail-0">
+  <h2>1-B栋</h2>
+  <p>1号学生宿舍B栋，四人间，配备独立卫浴，靠近1号食堂。</p>
+  <p><strong>位置：</strong>校园西北角</p>
+</template>
+<template id="detail-1">
+  <h2>1-A栋</h2>
+  <p>1号学生宿舍A栋，与B栋结构相同，主要供女生入住。</p>
+</template>
+<template id="detail-2">
+  <h2>1-食堂</h2>
+  <p>提供面食，现炒/预制盖饭，麻辣烫，俄式/美式餐食。</p>
+</template>
+<template id="detail-3">
+  <h2>体育馆</h2>
+  <p>下层为标准室内泳池，上层为室内篮球/羽毛球场。</p>
+</template>
+<template id="detail-4">
+  <h2>学生活动中心</h2>
+  <p>社团根据地。提供美术/摄影/舞蹈/社交场所。</p>
+</template>
+<template id="detail-5">
+  <h2>体育场看台</h2>
+  <p>没有空调。</p>
+</template>
+<template id="detail-21">
+  <h2>会堂</h2>
+  <p>可容纳近千人，用于开学典礼、文艺汇演等大型活动。</p>
+</template>
+
+  <script src="script_v2.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+/* style.css */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", sans-serif;
+  background-color: #f9fafb;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ===== TabBar ===== */
+.tabbar {
+  background: #1e5799;
+  color: white;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 768px;           /* 限定宽度 */
+  margin: 0 auto;         /* 居中对齐 */
+  border-radius: 8px;    /* 四角圆角 */
+  overflow: hidden;       /* 防止内容溢出 */
+}
+.tabbar h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  text-align: center;
+}
+.tabs {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  padding: 0 16px; /* 内边距，避免按钮贴边 */
+}
+.tab-btn {
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.tab-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
+.tab-btn.active {
+  background: white;
+  color: #1e5799;
+}
+
+/* ===== 主内容区 ===== */
+#app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* 隐藏非激活 Tab */
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* ===== 导航 Tab ===== */
+#map-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+#map-img {
+  width: 100%;
+  display: block;
+}
+#path-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.node-btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* 必须高于 canvas 和 overlay */
+  pointer-events: auto;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid #1976d2;
+  border-radius: 0;
+  width: 100px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  font-size: 0.8rem;
+  user-select: none;
+}
+.node-btn.selected-start {
+  background: #1976d2;
+  color: white;
+}
+
+.node-btn.selected-end {
+  background: #d32f2f;
+  color: white;
+}
+.controls-section {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.button-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.btn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.primary { background: #007bff; color: white; }
+.btn:hover { opacity: 0.9; }
+
+.output-box {
+  background: #f1f1f1;
+  padding: 12px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+  margin-bottom: 12px;
+}
+
+.hint-text {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+/* ===== 路径 Tab ===== */
+.full-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.image-caption {
+  text-align: center;
+  color: #666;
+  margin-top: 8px;
+}
+
+/* ===== 导览 Tab ===== */
+.guide-container {
+  display: flex;
+  gap: 24px;
+  height: 600px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.guide-sidebar {
+  width: 250px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  overflow-y: auto; /* 关键：允许垂直滚动 */
+}
+.search-box {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.landmark-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1; /* 占据剩余空间 */
+  overflow-y: auto; /* 备用：确保列表可滚 */
+}
+.landmark-list li {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.landmark-list li:hover {
+  background: #e3f2fd;
+}
+.landmark-list li.active {
+  background: #bbdefb;
+  font-weight: bold;
+}
+
+.guide-detail {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+.guide-detail h2 {
+  margin-top: 0;
+  color: #1e5799;
+}
