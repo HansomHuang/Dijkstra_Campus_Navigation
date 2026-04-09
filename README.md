@@ -8,11 +8,8 @@
 
 这是一个基于校园地图的导航系统，使用 **C 语言**实现后端路径计算服务，使用 **HTML / CSS / JavaScript** 实现前端交互界面。项目核心采用 **Dijkstra 最短路径算法**，用于计算校园内两个地点之间的最短路线，并在地图上可视化展示结果。
 
-该项目适合作为：
-
+该项目是：
 - 数据结构与算法课程项目
-- C 语言与前端联动的练习样例
-- 校园导览或路径规划原型
 
 ### 功能特点
 
@@ -113,13 +110,6 @@ cd backend
 
 为避免浏览器本地文件策略影响，推荐使用本地静态服务器，例如 VS Code Live Server。
 
-### 适合 GitHub 展示的要点
-
-- 包含完整前后端源码
-- 包含算法与界面联动示例
-- 包含地图资源与交互式导航展示
-- 适合作为课程项目或个人作品集项目
-
 ### 后续可改进方向
 
 - 增加更多地点介绍内容
@@ -136,11 +126,8 @@ cd backend
 
 This project is a campus navigation system built on top of a campus map. It uses **C** for the backend route computation service and **HTML / CSS / JavaScript** for the frontend interface. The core algorithm is **Dijkstra's shortest path algorithm**, which computes the shortest route between two campus locations and visualizes it on the map.
 
-This project is suitable as:
-
+This project is:
 - a data structures and algorithms course project
-- a demo of integrating C backend logic with a web frontend
-- a prototype for campus guide and path planning systems
 
 ### Features
 
@@ -240,13 +227,6 @@ cd backend
 Open `frontend/index.html` in a browser, or serve the `frontend` directory with a local static server.
 
 To avoid browser restrictions related to local files, using a local static server such as VS Code Live Server is recommended.
-
-### Why This Repository Is GitHub-Friendly
-
-- Includes both frontend and backend source code
-- Demonstrates algorithm + visualization integration
-- Includes campus map assets and interactive navigation UI
-- Suitable for coursework showcase and personal portfolio use
 
 ### Possible Improvements
 
